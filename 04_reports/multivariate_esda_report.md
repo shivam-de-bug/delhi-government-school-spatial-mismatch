@@ -36,7 +36,7 @@ This is *inverted* from reality. NDMC has extremely low population density; Must
 
 **The Decision:** For all LISA analysis and spatial regression, we use **`MI_supply`** (UDISE+ Ground Truth Enrolment / Seat Capacity) as our primary dependent variable. The `MI_demand` analysis is retained for comparison but explicitly flagged as subject to satellite estimation bias.
 
-> **Viva Defense:** *"Professor, both measures were computed. However, WorldPop's well-documented limitation in detecting vertical density in Indian informal settlements causes it to drastically underestimate populations in slum wards like Mustafabad while overestimating low-density bureaucratic zones like NDMC. We therefore anchor our primary analysis to UDISE+ administrative enrolment data, which is collected via annual audited school census, making it the methodologically superior and bias-free measure."*
+> WorldPop's well-documented limitation in detecting vertical density in Indian informal settlements causes it to drastically underestimate populations in slum wards like Mustafabad while overestimating low-density bureaucratic zones like NDMC. We therefore anchor our primary analysis to UDISE+ administrative enrolment data, which is collected via annual audited school census, making it the methodologically superior and bias-free measure."*
 
 ---
 
@@ -63,7 +63,7 @@ The consequence: **`MI_supply` = 0.3307** — the mismatch between random supply
 
 **This is the mathematical proof of your thesis.**
 
-> **Viva Defense:** *"The core finding of the Global Moran's I is not simply that overcrowding exists — it is that the government's distribution of school capacity is spatially random (I = 0.05, p = 0.11), while demographic demand is strongly spatially concentrated (I = 0.24, p < 0.001). The spatial mismatch is therefore a structurally determined outcome of policy failure, not a random occurrence."*
+> *"The core finding of the Global Moran's I is not simply that overcrowding exists — it is that the government's distribution of school capacity is spatially random (I = 0.05, p = 0.11), while demographic demand is strongly spatially concentrated (I = 0.24, p < 0.001). The spatial mismatch is therefore a structurally determined outcome of policy failure, not a random occurrence."*
 
 ---
 
@@ -158,14 +158,14 @@ Vivek Vihar, New Seemapuri, Sangam Vihar-B and -D, Nawada, Kadipur, Nilothi, and
 ### Figure 1: Multi-Panel LISA Cluster Maps
 The critical visual comparison is between **Panel A** (Child Population) and **Panel B** (Seat Capacity). Panel A is covered in Red clusters in the North/East corridor and Blue clusters in the South. Panel B is almost entirely grey — proving the government's school-building is spatially random with respect to where children live.
 
-![LISA Cluster Maps](c:/Users/Shivam/OneDrive/Desktop/antissse/multivariate_lisa.png)
+![LISA Cluster Maps](../03_outputs/esda/multivariate_lisa.png)
 
 ---
 
 ### Figure 2: Moran's Scatterplots
 The slope of the regression line in each quadrant directly equals the Global Moran's I. The nearly-flat line in the Seat Capacity panel visually represents the random, policy-blind distribution of school infrastructure. Compare this to the steep positive slope in the MI_supply panel — a ward's mismatch is strongly predicted by its neighbors' mismatch.
 
-![Moran Scatterplots](c:/Users/Shivam/OneDrive/Desktop/antissse/multivariate_moran.png)
+![Moran Scatterplots](../03_outputs/esda/multivariate_moran.png)
 
 ---
 
@@ -181,7 +181,7 @@ By plotting the variance of `MI_supply` against the pairwise distance between al
 ### Visual Evidence: The Variogram Cloud
 The plot below explicitly marks the Range and Sill over the "Variogram Cloud" (the raw scatterplot of all 34,980 unique ward pairs). Because the empirical curve does not stay perfectly flat after the Sill (it begins drifting upward again at extreme distances), it mathematically confirms the presence of a global non-stationary trend in Delhi.
 
-![Variogram Cloud](c:/Users/Shivam/OneDrive/Desktop/antissse/variogram_cloud.png)
+![Variogram Cloud](../03_outputs/esda/variogram_cloud.png)
 
 ### The Academic Defense: Why a Variogram Cannot Replace LISA
 A common question in geostatistical analysis is whether the HH and LL clusters identified by LISA could simply be extracted directly from a Variogram.

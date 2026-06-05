@@ -65,13 +65,13 @@ delhi-school-spatial-mismatch/
 │   └── 04_depth_report.md                ← 4. Impact decomposition, SDM, robustness
 │
 └── 05_poster/
-    ├── A. Poster_Design_Layout.md
-    ├── B. Does_Delhi_Build_Schools_Where_Children_Live.md
-    ├── C. LIMITATIONS.md
-    ├── D. poster_A1.pdf
-    ├── E. References.pdf
-    ├── F. Limitations_and_Caveats.pdf
-    └── G. Project_Initiation_Report.docx
+    ├──  Poster_Design_Layout.md
+    ├──  Does_Delhi_Build_Schools_Where_Children_Live.md
+    ├──  LIMITATIONS.md
+    ├──  poster_A1.pdf
+    ├──  References.pdf
+    ├──  Limitations_and_Caveats.pdf
+    └──  Project_Initiation_Report.docx
 ```
 
 ---
@@ -201,7 +201,7 @@ The correlation between WorldPop density and actual mismatch in North Delhi is *
 
 ## ⚠️ Limitations
 
-See [`Missing_Data_Analysis`](04_reports/missing_data_analysis.md) for the full quantitative data quality audit, and [`LIMITATIONS`](05_poster/LIMITATIONS.md) for the complete limitations and caveats document.
+See [`Missing_Data_Analysis`](04_reports/01_missing_data_analysis.md) for the full quantitative data quality audit, and [`LIMITATIONS`](05_poster/LIMITATIONS.md) for the complete limitations and caveats document.
 
 Key limitations:
 1. **WorldPop Satellite Bias** — 35–65% undercount in informal North Delhi settlements.
@@ -215,7 +215,7 @@ Key limitations:
 
 ## 🖼️ Research Poster
 
-The A1 academic poster [`Poster`](05_poster/poster_A1.pdf)presents the full research narrative across four columns:
+The A1 academic poster [`Poster`](05_poster/poster_A1.pdf) presents the full research narrative across four columns:
 
 | Column | Section | Key Content |
 |---|---|---|

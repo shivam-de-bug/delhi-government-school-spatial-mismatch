@@ -220,7 +220,7 @@ In our context: does a neighbouring ward's PTR directly affect our ward's mismat
 
 ### Figure 10: Model Comparison — OLS vs SAR vs SDM
 
-![Model Comparison SDM](c:/Users/Shivam/OneDrive/Desktop/antissse/model_comparison_sdm.png)
+![Model Comparison SDM](model_comparison_sdm.png)
 
 ### What SDM Reveals That SAR Cannot
 
@@ -242,7 +242,7 @@ Despite SDM fitting better, we report SAR as the primary model for three reasons
 
 **SDM is reported as a robustness check confirming that spatial dependence is present in both Y and X, and that our SAR ρ is a conservative lower bound on the total spatial interdependence.**
 
-> **[!IMPORTANT]** *"We estimated SDM as a robustness check. It fits better (AIC −121.82 vs SAR −98.94), suggesting that covariate spillovers in X are also present. The SDM ρ (0.11) is lower than SAR ρ (0.29) because SAR was absorbing some X-spillover into the lagged Y coefficient. We report SAR as the primary model because it is identified by the LM diagnostic decision rule and provides a cleaner, policy-communicable ρ estimate. SDM confirms the spatial dependence finding is robust and, if anything, stronger than SAR indicates."*
+> *"We estimated SDM as a robustness check. It fits better (AIC −121.82 vs SAR −98.94), suggesting that covariate spillovers in X are also present. The SDM ρ (0.11) is lower than SAR ρ (0.29) because SAR was absorbing some X-spillover into the lagged Y coefficient. We report SAR as the primary model because it is identified by the LM diagnostic decision rule and provides a cleaner, policy-communicable ρ estimate. SDM confirms the spatial dependence finding is robust and, if anything, stronger than SAR indicates."*
 
 ---
 
@@ -286,6 +286,6 @@ We used 300m fuzzy contiguity. Alternative W choices (k-nearest neighbours with 
 
 ## 6.7 The Synthesis
 
-  *"What is the most important finding in entire study?"*
+  ### What is the most important finding in the entire study?
 
-  *"The spatial decomposition of PTR's effect using the LeSage & Pace (2009) spatial multiplier. The raw SAR coefficient of PTR is +0.088, but the total impact — including the cascade through the spatial multiplier — is +0.123. This 37.2% amplification means that teacher shortage in one Delhi ward does not just harm that ward's children. It harms all neighbouring wards' children too, through the spatial spillover network. When Delhi deploys additional teachers to a high-PTR East Delhi ward, the educational benefit is 37.2% larger than the local ward statistics suggest. This is the core policy argument of the entire thesis: spatial interdependence means that localised interventions have super-local benefits, and this non-local effect is quantifiable at ρ = 0.2855 and Total PTR Impact = 0.1231."*
+  The spatial decomposition of PTR's effect using the LeSage & Pace (2009) spatial multiplier. The raw SAR coefficient of PTR is +0.088, but the total impact — including the cascade through the spatial multiplier — is +0.123. This 37.2% amplification means that the teacher shortage in one Delhi ward does not just harm that ward's children. It harms all neighbouring wards' children too, through the spatial spillover network. When Delhi deploys additional teachers to a high-PTR East Delhi ward, the educational benefit is 37.2% larger than the local ward statistics suggest. This is the core policy argument of the entire thesis: spatial interdependence means that localised interventions have super-local benefits, and this non-local effect is quantifiable at ρ = 0.2855 and Total PTR Impact = 0.1231.

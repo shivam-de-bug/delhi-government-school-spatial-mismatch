@@ -98,7 +98,7 @@ All three spatial statistics — Moran's I, SAR ρ, and SAR R² — are **identi
 | Wards with MI > 1.0 (overcrowded) | ~35% of wards | ~65% of wards |
 | Interpretation | "Some overcrowding" | "Majority overcrowded" |
 
-> **[!IMPORTANT] Viva Defense:** *"Our Moran's I, SAR ρ, and GWR patterns are completely stable across the 40, 35, and 30-seat classroom norms. This is expected and intentional — all spatial statistics are scale-invariant. The classroom norm only affects the absolute level of MI (which wards appear 'overcrowded' vs 'under-utilised'). For our spatial dependency findings, the choice of norm is immaterial."*
+> **[!IMPORTANT]** *"Our Moran's I, SAR ρ, and GWR patterns are completely stable across the 40, 35, and 30-seat classroom norms. This is expected and intentional — all spatial statistics are scale-invariant. The classroom norm only affects the absolute level of MI (which wards appear 'overcrowded' vs 'under-utilised'). For our spatial dependency findings, the choice of norm is immaterial."*
 
 ### Figure 8: Robustness Check — Classroom Norm Sensitivity
 
@@ -242,14 +242,11 @@ Despite SDM fitting better, we report SAR as the primary model for three reasons
 
 **SDM is reported as a robustness check confirming that spatial dependence is present in both Y and X, and that our SAR ρ is a conservative lower bound on the total spatial interdependence.**
 
-> **[!IMPORTANT] Viva Defense for SDM:** *"We estimated SDM as a robustness check. It fits better (AIC −121.82 vs SAR −98.94), suggesting that covariate spillovers in X are also present. The SDM ρ (0.11) is lower than SAR ρ (0.29) because SAR was absorbing some X-spillover into the lagged Y coefficient. We report SAR as the primary model because it is identified by the LM diagnostic decision rule and provides a cleaner, policy-communicable ρ estimate. SDM confirms the spatial dependence finding is robust and, if anything, stronger than SAR indicates."*
+> **[!IMPORTANT]** *"We estimated SDM as a robustness check. It fits better (AIC −121.82 vs SAR −98.94), suggesting that covariate spillovers in X are also present. The SDM ρ (0.11) is lower than SAR ρ (0.29) because SAR was absorbing some X-spillover into the lagged Y coefficient. We report SAR as the primary model because it is identified by the LM diagnostic decision rule and provides a cleaner, policy-communicable ρ estimate. SDM confirms the spatial dependence finding is robust and, if anything, stronger than SAR indicates."*
 
 ---
 
 ## 6.5 Formal Data Limitations
-
-> [!WARNING]
-> These limitations must be explicitly acknowledged in any submitted report or viva. They do not invalidate the findings but contextualise their generalisability.
 
 ### Limitation 1: Private School Substitution (Partially Addressed)
 Our regression covariates now include private school counts (extracted and matched for 257/274 wards). However, the private school enrolment counts (not just school counts) are not merged. A ward may have 10 private schools with 50 students each (low substitution) or with 500 students each (high substitution). The private school count is an imperfect proxy.
@@ -287,10 +284,8 @@ We used 300m fuzzy contiguity. Alternative W choices (k-nearest neighbours with 
 
 ---
 
-## 6.7 Viva Defense: The Synthesis
+## 6.7 The Synthesis
 
-If the professor asks: *"What is the single most important finding in your entire study?"*
+  *"What is the most important finding in entire study?"*
 
-**The answer should be:**
-
-> *"The spatial decomposition of PTR's effect using the LeSage & Pace (2009) spatial multiplier. The raw SAR coefficient of PTR is +0.088, but the total impact — including the cascade through the spatial multiplier — is +0.123. This 37.2% amplification means that teacher shortage in one Delhi ward does not just harm that ward's children. It harms all neighbouring wards' children too, through the spatial spillover network. When Delhi deploys additional teachers to a high-PTR East Delhi ward, the educational benefit is 37.2% larger than the local ward statistics suggest. This is the core policy argument of the entire thesis: spatial interdependence means that localised interventions have super-local benefits, and this non-local effect is quantifiable at ρ = 0.2855 and Total PTR Impact = 0.1231."*
+  *"The spatial decomposition of PTR's effect using the LeSage & Pace (2009) spatial multiplier. The raw SAR coefficient of PTR is +0.088, but the total impact — including the cascade through the spatial multiplier — is +0.123. This 37.2% amplification means that teacher shortage in one Delhi ward does not just harm that ward's children. It harms all neighbouring wards' children too, through the spatial spillover network. When Delhi deploys additional teachers to a high-PTR East Delhi ward, the educational benefit is 37.2% larger than the local ward statistics suggest. This is the core policy argument of the entire thesis: spatial interdependence means that localised interventions have super-local benefits, and this non-local effect is quantifiable at ρ = 0.2855 and Total PTR Impact = 0.1231."*

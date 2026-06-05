@@ -102,7 +102,7 @@ All three spatial statistics — Moran's I, SAR ρ, and SAR R² — are **identi
 
 ### Figure 8: Robustness Check — Classroom Norm Sensitivity
 
-![Robustness Norm](03_outputs/regression/robustness_norm.png)
+![Robustness Norm](../03_outputs/regression/robustness_norm.png)
 
 **Reading the chart:** All three bars in each panel have **identical heights**. This is definitive proof of robustness — the spatial structure of the mismatch is invariant to the seat capacity assumption.
 
@@ -176,7 +176,7 @@ For our SAR model:
 
 ### Figure 9: Direct, Indirect, and Total Impacts (Visual Decomposition)
 
-![Impacts Decomposition](03_outputs/regression/impacts_decomposition.png)
+![Impacts Decomposition](../03_outputs/regression/impacts_decomposition.png)
 
 **Reading this chart:**
 - Each variable has three bars: blue (Direct), red (Indirect/Spillover), green (Total)
@@ -220,7 +220,7 @@ In our context: does a neighbouring ward's PTR directly affect our ward's mismat
 
 ### Figure 10: Model Comparison — OLS vs SAR vs SDM
 
-![Model Comparison SDM](03_outputs/regression/model_comparison_sdm.png)
+![Model Comparison SDM](../03_outputs/regression/model_comparison_sdm.png)
 
 ### What SDM Reveals That SAR Cannot
 

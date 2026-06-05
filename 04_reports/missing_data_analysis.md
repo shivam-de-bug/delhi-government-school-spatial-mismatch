@@ -72,13 +72,12 @@
 > 2. Attend private schools (economic burden)
 > 3. Drop out entirely
 >
-> This is a critical finding for your research — it directly supports the need for spatial regression models that account for cross-ward "demand leakage."
+> This is a critical finding — it directly supports the need for spatial regression models that account for cross-ward "demand leakage."
 
 ---
 
 ## 5. Implications for Research Methodology
 
-### What the Professor is asking:
 The 74 NaN schools and 9 empty wards are not just "missing data" — they carry **information value**:
 
 1. **Selection Bias Risk**: By excluding 74 schools, we are systematically dropping poorly-administered, under-resourced senior secondary schools. This makes the mapped data look **better** than reality (lower PTR, higher MI).
@@ -87,14 +86,9 @@ The 74 NaN schools and 9 empty wards are not just "missing data" — they carry 
 
 3. **Empty Wards as Policy Variables**: The 9 wards with zero schools should be **included** in the spatial analysis with MI = ∞ (or a capped value). They represent the most extreme form of mismatch. Excluding them would understate the spatial inequality.
 
-### Recommendation for the Paper:
-- Report this analysis in **Section 3 (Data & Methodology)** as a "Data Quality Assessment"
-- Include the Welch's t-test table to demonstrate awareness of potential bias
-- Use the 1.24 lakh figure as a **headline finding** in the policy implications section
 
-
-Ward ID,Probable Ward Name,Status Check
+*"Ward ID,Probable Ward Name,Status Check
 071S,Deoli,"Partially True. Deoli is a massive urban village. While there are schools nearby (like in Sangam Vihar or Ambedkar Nagar), the core ward has a severe shortage of government senior secondary schools relative to its population."
 093S,Tughlakabad,"Verified. This area is a mix of heritage land and dense unauthorized colonies. Most government schools are located on the periphery (Tughlakabad Ext. or Kalkaji), leaving the inner ward under-served."
 005E,Bhajanpura / Yamuna Vihar,True (for floodplains). Areas near the Yamuna floodplain (like Sonia Vihar parts) often lack permanent government school infrastructure due to land zoning restrictions.
-101N,Narela / Lampur,"Likely. These are peripheral North Delhi wards where industrial or agricultural land dominates, and residential clusters are often far from existing school buildings."
+101N,Narela / Lampur,"Likely. These are peripheral North Delhi wards where industrial or agricultural land dominates, and residential clusters are often far from existing school buildings."*

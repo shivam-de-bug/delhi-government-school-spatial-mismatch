@@ -2,7 +2,7 @@
 ### Spatial Mismatch Between Government School Capacity and Child Population Across Delhi's MCD Wards
 
 
-📄 **[View the Full A1 Research Poster (PDF)](05_poster/poster_A1.pdf)** | 📋 **[Project Initiation Report](05_poster/Project_Initiation_Report.docx)** | ⚠️ **[Limitations & Caveats](05_poster/LIMITATIONS.md)**
+📄 **[ Research Poster](05_poster/poster_A1.pdf)** | 📋 **[Project Initiation Report](05_poster/Project_Initiation_Report.docx)** | ⚠️ **[Limitations & Caveats](05_poster/LIMITATIONS.md)**
 
 ---
 
@@ -59,14 +59,19 @@ delhi-school-spatial-mismatch/
 │   └── regression/                    ← LM diagnostics, OLS residuals, GWR maps, impacts
 │
 ├── 04_reports/
-│   ├── spatial_regression_report.md   ← Full Chapter 5: SAR & GWR analysis
-│   ├── depth_report.md                ← Chapter 6: Impact decomposition, SDM, robustness
-│   ├── missing_data_analysis.md       ← Data quality audit: unmapped schools & empty wards
-│   └── multivariate_esda_report.md    ← Chapter 4: Multivariate ESDA findings
+│   ├── missing_data_analysis.md       ← 1. Data quality audit: unmapped schools & empty wards
+│   ├──multivariate_esda_report.md     ← 2. Multivariate ESDA findings
+│   ├── spatial_regression_report.md   ← 3. SAR & GWR analysis
+│   └── depth_report.md                ← 4. Impact decomposition, SDM, robustness
 │
 └── 05_poster/
-    ├── Poster_Design_Layout.md        ← A1 poster blueprint (4-column layout)
-    └── Does_Delhi_Build_Schools_Where_Children_Live.md  ← Full paper draft
+    ├── A. Poster_Design_Layout.md
+    ├── B. Does_Delhi_Build_Schools_Where_Children_Live.md
+    ├── C. LIMITATIONS.md
+    ├── D. poster_A1.pdf
+    ├── E. References.pdf
+    ├── F. Limitations_and_Caveats.pdf
+    └── G. Project_Initiation_Report.docx
 ```
 
 ---
@@ -196,7 +201,7 @@ The correlation between WorldPop density and actual mismatch in North Delhi is *
 
 ## ⚠️ Limitations
 
-See [`04_reports/missing_data_analysis.md`](04_reports/missing_data_analysis.md) for the full quantitative data quality audit, and [`05_poster/LIMITATIONS.md`](05_poster/LIMITATIONS.md) for the complete limitations and caveats document.
+See [`Missing_Data_Analysis`](04_reports/missing_data_analysis.md) for the full quantitative data quality audit, and [`LIMITATIONS`](05_poster/LIMITATIONS.md) for the complete limitations and caveats document.
 
 Key limitations:
 1. **WorldPop Satellite Bias** — 35–65% undercount in informal North Delhi settlements.
@@ -210,7 +215,7 @@ Key limitations:
 
 ## 🖼️ Research Poster
 
-The A1 academic poster (`05_poster/poster_A1.pdf`) presents the full research narrative across four columns:
+The A1 academic poster [`Poster`](05_poster/poster_A1.pdf)presents the full research narrative across four columns:
 
 | Column | Section | Key Content |
 |---|---|---|
@@ -223,7 +228,7 @@ The A1 academic poster (`05_poster/poster_A1.pdf`) presents the full research na
 
 ## 📚 References
 
-> Full reference list is available in [`05_poster/References.pdf`](05_poster/References.pdf)
+> Full reference list is available in [`References`](05_poster/References.pdf)
 
 ### Primary Data & Policy Sources
 1. **Ministry of Education (2024).** *UDISE+ 2023–24: Unified District Information System for Education Plus.* Government of India.

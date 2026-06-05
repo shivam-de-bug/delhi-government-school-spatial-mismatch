@@ -1,4 +1,4 @@
-# Missing Data Analysis: NaN Schools & Empty Wards
+# 1. Missing Data Analysis: NaN Schools & Empty Wards
 
 ## 1. Scope of Data Loss
 

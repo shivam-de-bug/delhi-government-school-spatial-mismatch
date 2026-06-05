@@ -1,4 +1,4 @@
-# Chapter 4: Exploratory Spatial Data Analysis (ESDA)
+# 2. Exploratory Spatial Data Analysis (ESDA)
 ## Detecting & Mapping the Spatial Mismatch in Delhi's Educational Infrastructure
 
 **Dataset:** 274 Delhi Municipal Wards | **Valid Analytical Sample:** N = 265 (after removing 9 wards with zero government schools)

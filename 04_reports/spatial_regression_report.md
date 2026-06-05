@@ -33,16 +33,54 @@ This chapter fulfils **Objective 3** of the research proposal: to estimate spati
 ### The Regression Equations
 
 **OLS:**
-$$MI\_{supply_i} = \beta_0 + \beta_1 \cdot \text{log\_pop\_density}_i + \beta_2 \cdot PTR_i + \beta_3 \cdot n\_schools_i + \sum_k \gamma_k \cdot Zone_k + \epsilon_i$$
+$$
+MI_{supply,i}
+=
+\beta_0
++
+\beta_1 \cdot \mathrm{LogPopDensity}_i
++
+\beta_2 \cdot PTR_i
++
+\beta_3 \cdot n_{schools,i}
++
+\sum_k \gamma_k \cdot Zone_k
++
+\epsilon_i
+$$
 
 **SAR (Spatial Autoregressive / Spatial Lag Model):**
-$$MI\_{supply_i} = \rho \sum_j w_{ij} \cdot MI\_{supply_j} + \beta_1 \cdot \text{log\_pop\_density}_i + \beta_2 \cdot PTR_i + \beta_3 \cdot n\_schools_i + \sum_k \gamma_k \cdot Zone_k + \epsilon_i$$
-
+$$
+MI_{supply,i}
+=
+\rho \sum_j w_{ij} \cdot MI_{supply,j}
++
+\beta_1 \cdot \mathrm{log\_pop\_density}_i
++
+\beta_2 \cdot PTR_i
++
+\beta_3 \cdot n_{schools,i}
++
+\sum_k \gamma_k \cdot Zone_k
++
+\epsilon_i
+$$
 Where $\rho$ (Rho) is the spatial lag coefficient (the spillover effect), and $w_{ij}$ is the spatial weight between ward $i$ and ward $j$.
 
 **GWR:**
-$$MI\_{supply_i} = \beta_0(u_i, v_i) + \beta_1(u_i, v_i) \cdot \text{log\_pop\_density}_i + \beta_2(u_i, v_i) \cdot PTR_i + \beta_3(u_i, v_i) \cdot n\_schools_i + \epsilon_i$$
-
+$$
+MI_{supply,i}
+=
+\beta_0(u_i, v_i)
++
+\beta_1(u_i, v_i) \cdot \mathrm{log\_pop\_density}_i
++
+\beta_2(u_i, v_i) \cdot PTR_i
++
+\beta_3(u_i, v_i) \cdot n_{schools,i}
++
+\epsilon_i
+$$
 Where $(u_i, v_i)$ is the geographic centroid of ward $i$, making every coefficient *local* to that ward's position.
 
 ---
@@ -106,7 +144,7 @@ The OLS residuals are borderline spatially correlated. The Lagrange Multiplier t
 
 ### Figure 3: OLS Residual Diagnostics
 
-![OLS Residuals](c:/Users/Shivam/OneDrive/Desktop/antissse/ols_residuals.png)
+![OLS Residuals](../03_outputs/regression/ols_residuals.png)
 
 ---
 
@@ -122,9 +160,6 @@ The OLS residuals are borderline spatially correlated. The Lagrange Multiplier t
 | **Robust LM-Error** | **10.69** | **0.0011** | **YES (model selection)** |
 | LM-SARMA | 25.77 | < 0.0001 | YES (separate test) |
 
-### Corrected Interpretation of Figure 4
-
-> **[!CAUTION] Error Corrected:** The previous version of this report incorrectly stated "Robust LM-Lag is the longest red bar." From the plot, **LM-SARMA has the longest bar** (stat = 25.77). However, **LM-SARMA is NOT used for the SAR vs. SEM decision.** LM-SARMA is a joint test that simply confirms that *some* form of spatial autocorrelation exists (lag + error combined). It does not tell you which one dominates.
 
 ### The Correct Decision Rule (Anselin 1988):
 
@@ -136,7 +171,7 @@ The Robust versions are specifically designed to be immune to contamination from
 
 ### Figure 4: Lagrange Multiplier Diagnostics (Corrected)
 
-![LM Diagnostics](c:/Users/Shivam/OneDrive/Desktop/antissse/lm_diagnostics.png)
+![LM Diagnostics](../03_outputs/regression/lm_diagnostics.png)
 
 ---
 
@@ -181,7 +216,7 @@ Dropping PTR collapses R² from 24.8% to 7.7% — a loss of 17 percentage points
 
 ### Figure 5: LOCO Sensitivity
 
-![LOCO Sensitivity](c:/Users/Shivam/OneDrive/Desktop/antissse/loco_sensitivity.png)
+![LOCO Sensitivity](../03_outputs/regression/loco_sensitivity.png)
 
 ---
 
@@ -202,7 +237,7 @@ Dropping PTR collapses R² from 24.8% to 7.7% — a loss of 17 percentage points
 
 ### Figure 6: GWR Coefficient Maps
 
-![GWR Maps](c:/Users/Shivam/OneDrive/Desktop/antissse/gwr_maps.png)
+![GWR Maps](../03_outputs/regression/gwr_maps.png)
 
 ---
 
@@ -290,13 +325,13 @@ WHAT THE NEGATIVE BETA MEANS:
 
 ### Figure 7: Where Does PTR Drive Mismatch? (Focused Comparison)
 
-![GWR PTR Focus](c:/Users/Shivam/OneDrive/Desktop/antissse/gwr_ptr_focus.png)
+![GWR PTR Focus](../03_outputs/regression/gwr_ptr_focus.png)
 
 **Reading this figure:**
 - **Panel A (GWR Local PTR β):** Warm/red = East Delhi where PTR genuinely and correctly drives mismatch. The cold/blue in North Delhi is NOT a genuine finding. It is a WorldPop data artefact — the regression cannot use an incorrect population variable to explain a real-population crisis.
 - **Panel B (Actual MI_supply):** The darkest red wards (Mubarak Pur Dabas, Nihal Vihar, Burari) are in North Delhi. This mismatch is confirmed real by UDISE+ (actual children in classrooms), not by satellite estimates. The disconnect between Panel A (blue North) and Panel B (red North) is a direct visual fingerprint of the WorldPop satellite bias.
 
-> **[!IMPORTANT] Viva Defense:** *"The negative local PTR coefficient in North Delhi in our GWR model is not a genuine behavioural finding. It is a measurement artefact from WorldPop's systematic underestimation of child populations in unauthorised multi-storey housing colonies — a failure mode documented by Wardrop et al. (2018) for dense South Asian informal settlements. Mubarak Pur Dabas has 17,943 children enrolled in government schools alone, while WorldPop estimates only 6,304 total — a 64% underestimate. Because our log_pop_density covariate is corrupted in North Delhi, GWR cannot correctly attribute the crisis there. The UDISE+ enrolment data confirms the crisis is real and severe. This finding strengthens our methodological argument: satellite population data requires ground-truthing before use as a regression covariate in policy-oriented spatial modelling."*
+> **[!IMPORTANT]** *"The negative local PTR coefficient in North Delhi in our GWR model is not a genuine behavioural finding. It is a measurement artefact from WorldPop's systematic underestimation of child populations in unauthorised multi-storey housing colonies — a failure mode documented by Wardrop et al. (2018) for dense South Asian informal settlements. Mubarak Pur Dabas has 17,943 children enrolled in government schools alone, while WorldPop estimates only 6,304 total — a 64% underestimate. Because our log_pop_density covariate is corrupted in North Delhi, GWR cannot correctly attribute the crisis there. The UDISE+ enrolment data confirms the crisis is real and severe. This finding strengthens our methodological argument: satellite population data requires ground-truthing before use as a regression covariate in policy-oriented spatial modelling."*
 
 
 
@@ -367,16 +402,13 @@ For our Delhi SAR model (n = 265, ρ = 0.2855):
 
 ### Figure 9: Direct, Indirect, and Total Impacts
 
-![Impacts Decomposition](c:/Users/Shivam/OneDrive/Desktop/antissse/impacts_decomposition.png)
+![Impacts Decomposition](../03_outputs/regression/impacts_decomposition.png)
 
 **Reading the chart:** Each variable has three bars — blue (Direct), red (Indirect/Spillover), green (Total). PTR towers above all others in all three bars. The red bar is what OLS completely misses. The gap between green (Total) and blue (Direct) is the spatial multiplier amplification.
 
 ---
 
 ## 5.12 Data Limitations
-
-> [!WARNING]
-> These limitations do not invalidate the findings but must be acknowledged for academic completeness and viva honesty.
 
 ### Limitation 1: WorldPop 2020 vs UDISE 2023-24 (4-Year Data Lag)
 Our `log_pop_density` covariate is derived from WorldPop 2020 child population estimates, while the mismatch data (UDISE+) is from 2023-24. Between 2020 and 2024, significant in-migration occurred into North and North-West peripheral Delhi wards (Rohini expansion, Narela new township, Bawana industrial labour). This 4-year lag means our population covariate is most inaccurate precisely in the fastest-growing wards — which are also the crisis wards.
@@ -420,7 +452,7 @@ We use 300m fuzzy contiguity (queen-based with buffer). Alternative specificatio
 
 ---
 
-## 5.14 Viva Defense Scripts
+## 5.14 Defense
 
 **Q: "Why 300m and not 150m for the spatial weights?"**
 *"At 150m tolerance, Ward 9 (Gharoli, East) remained a topological island with zero neighbours due to a digitisation sliver gap in the boundary data. An island cannot contribute to Moran's I or SAR estimation. The 300m buffer resolves this without changing the average neighbour count (4.66 in both cases), confirming no spurious long-distance linkages were introduced."*

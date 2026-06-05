@@ -29,8 +29,17 @@ The study integrates three primary datasets at the ward level:
 
 **Defining the Mismatch Index (MI):**
 To measure overcrowding, we constructed a Supply-Side Mismatch Index (`MI_supply`). We assumed a maximum legal seating capacity of 40 students per classroom (the upper bound under the RTE Act). 
-$$\text{Seat Capacity} = \text{Total Classrooms} \times 40$$
-$$\text{MI\_supply} = \frac{\text{Total Enrolment}}{\text{Seat Capacity}}$$
+$$
+\text{Seat Capacity}
+=
+\text{Total Classrooms} \times 40
+$$
+
+$$
+MI_{supply}
+=
+\frac{\text{Total Enrolment}}{\text{Seat Capacity}}
+$$
 - **MI < 1.0**: Ward has surplus capacity (empty seats).
 - **MI > 1.0**: Ward is structurally overcrowded (more students than legal seats).
 
@@ -53,14 +62,14 @@ The methodology follows a classic spatial econometric progression:
 ### 3.1 The Mismatch Map
 Before statistical modeling, we mapped the raw `MI_supply` index across Delhi.
 
-![Mismatch Index](c:/Users/Shivam/OneDrive/Desktop/antissse/map4_mismatch_index.png)
+![Mismatch Index](../03_outputs/maps/map4_mismatch_index.png)
 
 The map reveals a stark divide. Central and South Delhi exhibit deep blue shades (MI < 1.0, indicating massive surplus capacity), while the Northern, North-Western, and Eastern peripheries burn bright red (MI > 1.2 to 2.0+, indicating severe structural overcrowding).
 
 ### 3.2 Global Moran's I
 To test if this visual clustering is statistically significant, we calculated Global Moran's I.
 
-![Moran Scatter](c:/Users/Shivam/OneDrive/Desktop/antissse/moran_scatter.png)
+![Moran Scatter](c../03_outputs/esda/moran_scatter.png)
 
 - **Moran's I = 0.3307 (p = 0.001)**
 The positive, highly significant Moran’s I confirms that educational mismatch is not a random occurrence. Overcrowded wards strongly cluster next to other overcrowded wards, and surplus wards cluster next to surplus wards. This violates the core assumption of independent observations required for standard OLS regression.
@@ -68,7 +77,7 @@ The positive, highly significant Moran’s I confirms that educational mismatch 
 ### 3.3 LISA Cluster Map (Local Indicators of Spatial Association)
 To pinpoint the exact locations of these statistically significant clusters, we generated a LISA map.
 
-![LISA Map](c:/Users/Shivam/OneDrive/Desktop/antissse/lisa_map.png)
+![LISA Map](../03_outputs/esda/multivariate_lisa.png)
 
 LISA identified two massive geographic phenomena:
 1. **The Core Surplus Zone (Low-Low, Blue):** 23 wards clustered in Central/South Delhi and NDMC. These areas have abundant school infrastructure but relatively few enrolled students.
@@ -76,7 +85,7 @@ LISA identified two massive geographic phenomena:
 
 ### 3.4 Spatial Continuity (Variogram)
 
-![Variogram](c:/Users/Shivam/OneDrive/Desktop/antissse/variogram.png)
+![Variogram](../03_outputs/esda/variogram.png)
 
 A spatial variogram was fitted to measure the physical range of the crisis. The model identified a **Range of 4.15 km**. This is a profound finding: if a government school in Delhi is overcrowded, you must travel at least 4.15 kilometers away before the overcrowding effect dissipates and you can reliably find a school with normal capacity. For poor families relying on walking or cheap public transit, a 4.15 km "crisis radius" is an insurmountable barrier to education.
 
@@ -89,14 +98,14 @@ To understand *what* drives this mismatch, we moved to multivariate regression, 
 ### 4.1 The Failure of OLS
 We first ran a standard Ordinary Least Squares (OLS) regression.
 
-![OLS Residuals](c:/Users/Shivam/OneDrive/Desktop/antissse/ols_residuals.png)
+![OLS Residuals](../03_outputs/regression/ols_residuals.png)
 
 The OLS model yielded an $R^2$ of 0.2477. However, testing the residuals of the OLS model revealed a **Residual Moran's I of 0.0621 (p=0.015)**. Furthermore, the residuals exhibited clear geographic clustering (red positive residuals in the North, blue negative in the South). Because the errors were spatially autocorrelated, the OLS coefficients were biased and inefficient. A spatial model was mandatory.
 
 ### 4.2 Model Selection: Lagrange Multiplier (LM) Diagnostics
 To choose between a Spatial Autoregressive (SAR) model and a Spatial Error Model (SEM), we used Anselin's (1988) LM diagnostics on the OLS residuals.
 
-![LM Diagnostics](c:/Users/Shivam/OneDrive/Desktop/antissse/lm_diagnostics.png)
+![LM Diagnostics](../03_outputs/regression/lm_diagnostics.png)
 
 - **Robust LM-Lag = 23.63 (p < 0.001)**
 - **Robust LM-Error = 10.69 (p = 0.001)**
@@ -110,7 +119,7 @@ The SAR model significantly improved the fit ($R^2 = 0.3041$, AIC dropped from -
 
 To determine which variable was the primary driver of the crisis, we performed a LOCO sensitivity analysis.
 
-![LOCO Sensitivity](c:/Users/Shivam/OneDrive/Desktop/antissse/loco_sensitivity.png)
+![LOCO Sensitivity](../03_outputs/regression/loco_sensitivity.png)
 
 Dropping the Pupil-Teacher Ratio (PTR) caused the model's $R^2$ to collapse by 17 percentage points. Dropping population density or school counts barely affected the model. **The crisis, globally, is primarily a teacher shortage mechanism.**
 
@@ -118,7 +127,7 @@ Dropping the Pupil-Teacher Ratio (PTR) caused the model's $R^2$ to collapse by 1
 
 In a SAR model, the raw coefficient ($\beta$) does not equal the total effect, because a change in one ward cascades through the spatial network (LeSage & Pace, 2009). We decomposed the PTR effect using the spatial multiplier matrix $S = (I - \rho W)^{-1}$.
 
-![Impacts Decomposition](c:/Users/Shivam/OneDrive/Desktop/antissse/impacts_decomposition.png)
+![Impacts Decomposition](../03_outputs/regression/impacts_decomposition.png)
 
 **Decomposition of PTR Effect:**
 - **Direct Impact:** +0.0898 (The effect of a teacher shortage on the ward's *own* schools)
@@ -133,7 +142,7 @@ In a SAR model, the raw coefficient ($\beta$) does not equal the total effect, b
 
 The SAR model gives us one "global" average for all of Delhi. To understand if the causes of the crisis change depending on where you are in the city, we ran a Geographically Weighted Regression (GWR).
 
-![GWR Maps](c:/Users/Shivam/OneDrive/Desktop/antissse/gwr_maps.png)
+![GWR Maps](../03_outputs/regression/gwr_maps.png)
 
 ### The PTR Paradox: Uncovering Two Distinct Crises
 
@@ -141,7 +150,7 @@ A critical observation emerged from the GWR maps: **PTR's effect is highest (bri
 
 To understand why, we compared the GWR PTR coefficient against actual mismatch.
 
-![GWR PTR Focus](c:/Users/Shivam/OneDrive/Desktop/antissse/gwr_ptr_focus.png)
+![GWR PTR Focus](../03_outputs/regression/gwr_ptr_focus.png)
 
 **The East Delhi Crisis (Teacher Shortage):**
 In East Delhi (Trilokpuri, Kalyan Puri, Mayur Vihar), the GWR PTR coefficient is strongly positive. Here, school buildings exist, but they are severely understaffed. The mismatch is genuinely driven by a lack of teachers. 
@@ -158,12 +167,8 @@ Why? Because **WorldPop satellite data severely underestimates informal settleme
 ---
 
 ## 6. Limitations of the Study
+[See detailed limitations and caveats](LIMITATIONS.md)
 
-This research acknowledges several formal limitations:
-1. **WorldPop Measurement Bias:** As proven in our GWR analysis, global gridded population datasets (like WorldPop) systematically fail in vertical, informal, unauthorised colonies (common in North Delhi). The negative correlation between WorldPop density and actual mismatch in the North (r = -0.361) confirms this bias.
-2. **Private School Substitution:** Delhi has 2,804 private schools operating alongside 2,645 government schools. In wealthy areas (South Delhi/NDMC), affluent families exit the government system. Our model's "surplus" in South Delhi is partially an artefact of private school substitution, which we could not fully control for without private enrolment micro-data.
-3. **Classroom Norm Assumption:** The 40-seat norm is the RTE upper bound. True usable capacity may be lower (laboratories, broken rooms) or higher (double-shift schools). However, spatial statistics (Moran's I, SAR $\rho$) are scale-invariant and remain highly robust regardless of the specific scalar norm chosen.
-4. **Temporal Lag:** WorldPop data is from 2020, while UDISE+ data is from 2023-24, failing to capture post-COVID internal migration to peripheral wards.
 
 ---
 

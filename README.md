@@ -60,7 +60,7 @@ delhi-school-spatial-mismatch/
 │
 ├── 04_reports/
 │   ├── missing_data_analysis.md       ← 1. Data quality audit: unmapped schools & empty wards
-│   ├──multivariate_esda_report.md     ← 2. Multivariate ESDA findings
+│   ├── multivariate_esda_report.md    ← 2. Multivariate ESDA findings
 │   ├── spatial_regression_report.md   ← 3. SAR & GWR analysis
 │   └── depth_report.md                ← 4. Impact decomposition, SDM, robustness
 │

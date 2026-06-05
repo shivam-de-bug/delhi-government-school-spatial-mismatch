@@ -1,6 +1,6 @@
 # Limitations & Caveats of the Study
 
-> This document is derived from the official Limitations & Caveats PDF submitted as part of the academic project. It provides a complete, transparent account of the methodological limitations. Acknowledging these does not invalidate the findings — it contextualises their scope and generalisability.
+> This document provides a complete, transparent account of the methodological limitations. Acknowledging these does not invalidate the findings — it contextualises their scope and generalisability.
 
 ---
 

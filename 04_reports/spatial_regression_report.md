@@ -33,7 +33,8 @@ This chapter fulfils **Objective 3** of the research proposal: to estimate spati
 ### The Regression Equations
 
 **OLS:**
-$$
+
+```math
 MI_{supply,i}
 =
 \beta_0
@@ -47,10 +48,11 @@ MI_{supply,i}
 \sum_k \gamma_k \cdot Zone_k
 +
 \epsilon_i
-$$
+```
 
 **SAR (Spatial Autoregressive / Spatial Lag Model):**
-$$
+
+```math
 MI_{supply,i}
 =
 \rho \sum_j w_{ij} \cdot MI_{supply,j}
@@ -64,11 +66,12 @@ MI_{supply,i}
 \sum_k \gamma_k \cdot Zone_k
 +
 \epsilon_i
-$$
+```
 Where $\rho$ (Rho) is the spatial lag coefficient (the spillover effect), and $w_{ij}$ is the spatial weight between ward $i$ and ward $j$.
 
 **GWR:**
-$$
+
+```math
 MI_{supply,i}
 =
 \beta_0(u_i, v_i)
@@ -80,7 +83,7 @@ MI_{supply,i}
 \beta_3(u_i, v_i) \cdot n_{schools,i}
 +
 \epsilon_i
-$$
+```
 Where $(u_i, v_i)$ is the geographic centroid of ward $i$, making every coefficient *local* to that ward's position.
 
 ---

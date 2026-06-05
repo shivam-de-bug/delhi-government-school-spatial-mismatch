@@ -1,4 +1,4 @@
-# Chapter 5: Spatial Regression Modeling (Objective 3)
+# 3. Spatial Regression Modeling 
 ## Estimating Drivers and Spillover Effects of Educational Mismatch in Delhi
 
 **Dataset:** N = 265 Valid Wards | **Spatial Weights:** 300m Fuzzy Contiguity, Row-Standardised

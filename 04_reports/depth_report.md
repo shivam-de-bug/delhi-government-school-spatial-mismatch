@@ -1,4 +1,4 @@
-# Chapter 6: Depth Analysis — Private Schools, Robustness, Impact Decomposition & SDM
+# 4. Depth Analysis — Private Schools, Robustness, Impact Decomposition & SDM
 
 **This is a standalone depth chapter.** It goes beyond the core spatial regression results to provide:
 1. Private school integration from UDISE+ management codes

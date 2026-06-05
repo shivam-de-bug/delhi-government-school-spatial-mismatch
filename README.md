@@ -1,7 +1,6 @@
 # Does Delhi Build Schools Where Children Live?
 ### Spatial Mismatch Between Government School Capacity and Child Population Across Delhi's MCD Wards
 
-> **ECO 324/524 — Spatial Statistics and Spatial Econometrics | IIIT-Delhi | 2025–26**
 
 📄 **[View the Full A1 Research Poster (PDF)](05_poster/poster_A1.pdf)** | 📋 **[Project Initiation Report](05_poster/Project_Initiation_Report.docx)** | ⚠️ **[Limitations & Caveats](05_poster/LIMITATIONS.md)**
 
@@ -273,7 +272,6 @@ The A1 academic poster (`05_poster/poster_A1.pdf`) presents the full research na
 ## 👤 Author
 
 **Shivam** | B.Tech. | IIIT-Delhi
-Course: ECO 324/524 — Spatial Statistics and Spatial Econometrics
 
 ---
 
